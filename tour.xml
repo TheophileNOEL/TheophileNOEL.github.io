@@ -1,7 +1,7 @@
 ﻿<krpano version="1.22.3" title="Virtual Tour" onstart="showlog(true);">
 
 	<include url="skin/vtourskin.xml" />
-
+	
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
 	<skin_settings maps="true"
 	               maps_type="google"
@@ -93,8 +93,8 @@
 			</level>
 		</image>
 
-		<hotspot name="spot1" style="skin_hotspotstyle3" ath="178.734" atv="14.186" depth="1000.0" linkedscene="scene_pano0096" />
-		<hotspot name="spot2" style="skin_hotspotstyle"  ath="179.742" atv="0.269" depth="1000.0" linkedscene="scene_pano0096" />
+		<hotspot name="spot0" style="skin_hotspotstyle3" ath="178.734" atv="14.186" depth="1000.0" linkedscene="scene_pano0096" />
+		<hotspot name="spot1" style="skin_hotspotstyle"  ath="179.742" atv="0.269" depth="1000.0" linkedscene="scene_pano0096" />
 
 	</scene>
 

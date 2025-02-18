@@ -1,5 +1,6 @@
 ﻿<krpano>
 	<!-- krpano 1.19.pr14 - Virtual Tour Skin -->
+	<include url="../plugins/dragable_hotspot.xml" />
 	<!-- <plugin name="googlemaps" url="../plugins/googlemaps.js" keep="true"/> -->
 	<!-- <include url="plugins/addon.xml"/> -->
 	<!-- skin settings (can be overridden in the tour.xml) -->
@@ -231,9 +232,9 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);blink_size_up();"
+	       onover.mouse="set(global.blink,1);"
 	       onout.mouse="set(global.blink,0);autosize();"
-		   ondrop=""
+		   ondown="draghotspot();autosize();"
 	       onloaded="set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');if(get(global.blink) != null, set(global.blink, 0));autosize();"
 	       />
 	<style name="skin_hotspotstyle1" url="croix_blanc_autoscale.png" edge="center" distorted="true"
@@ -241,7 +242,7 @@
 	       linkedscene="" 
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);blink_size_up();"
+	       onover.mouse="set(global.blink,1);"
 	       onout.mouse="if(get(global.blink) != null, set(global.blink, 0));stoptween(caller.scale);callwith(caller, autosize);"
 		   ondrop=""
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
@@ -251,7 +252,7 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);blink_size_up();"
+	       onover.mouse="set(global.blink,1);"
 	       onout.mouse="set(global.blink,0);stoptween(caller.scale);autosize();"
 		   ondrop=""
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
@@ -261,9 +262,9 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);trace(this.name);blink_size_up();"
+	       onover.mouse="set(global.blink,1);"
 	       onout.mouse="set(global.blink,0);autosize();"
-		   ondrop=""
+		   ondown="draghotspot();"
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips););set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
 	       />
 	<style name="skin_hotspotstyle4" url="vtourskin_mapspot.png" edge="center" distorted="true"
@@ -271,7 +272,7 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);blink_size_up();"
+	       onover.mouse="set(global.blink,1);"
 	       onout.mouse="set(global.blink,0);stoptween(caller.scale);autosize();"
 		   ondrop=""
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
@@ -310,7 +311,7 @@
 			set(caller_rx, get(caller.rx));
 			set(caller_atv, get(caller.atv));
 			set(height_view_point, 1.5);
-			set(reduction,0.3);
+			set(reduction,0.5);
 			set(min_scale,0.2);
 			set(focal,0.1);
 			<!-- Conversion de caller_atv en radians -->
@@ -455,7 +456,7 @@
 			set(global.Autosize,1);
 			set(layer[btn_toggle_autosize].html, 'On');
 			tween(layer[btn_toggle_autosize].bgcolor,0x45A049,0.3);
-			for(set(i,0),i LE calc(hotspot.count - 4),inc(i),callwith(hotspot[calc('spot'+i)],autosize));
+			for(set(i,0),i LE calc(hotspot.count - 4),inc(i),callwith(hotspot[calc('spot'+i)],autosize));;
 		);
 	</action>
 	<action name="ToggleEasyNavCross" scope="local">
