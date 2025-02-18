@@ -1,6 +1,6 @@
 ﻿<krpano>
 	<!-- krpano 1.19.pr14 - Virtual Tour Skin -->
-	<include url="../plugins/dragable_hotspot.xml" />
+	<include url="../plugins/addon.xml" />
 	<!-- <plugin name="googlemaps" url="../plugins/googlemaps.js" keep="true"/> -->
 	<!-- <include url="plugins/addon.xml"/> -->
 	<!-- skin settings (can be overridden in the tour.xml) -->
@@ -29,7 +29,7 @@
 	               tooltips_hotspots="false"
 	               tooltips_mapspots="false"
 	               deeplinking="false"
-	               loadscene_flags="MERGE"
+	               loadscene_flags="MERGE|KEEPVIEW"
 	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
 	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
 	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
@@ -232,9 +232,9 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);"
-	       onout.mouse="set(global.blink,0);autosize();"
-		   ondown="draghotspot();autosize();"
+		   onclick.mouse.rightbutton="rightclick();"
+		   ondown="draghotspot();"
+		   onup="autosize();"
 	       onloaded="set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');if(get(global.blink) != null, set(global.blink, 0));autosize();"
 	       />
 	<style name="skin_hotspotstyle1" url="croix_blanc_autoscale.png" edge="center" distorted="true"
@@ -242,8 +242,6 @@
 	       linkedscene="" 
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);"
-	       onout.mouse="if(get(global.blink) != null, set(global.blink, 0));stoptween(caller.scale);callwith(caller, autosize);"
 		   ondrop=""
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
 	       />
@@ -252,8 +250,6 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);"
-	       onout.mouse="set(global.blink,0);stoptween(caller.scale);autosize();"
 		   ondrop=""
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
 	       />
@@ -262,9 +258,8 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);"
-	       onout.mouse="set(global.blink,0);autosize();"
 		   ondown="draghotspot();"
+		   onup="autosize();"
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips););set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
 	       />
 	<style name="skin_hotspotstyle4" url="vtourskin_mapspot.png" edge="center" distorted="true"
@@ -272,9 +267,6 @@
 	       linkedscene=""
 	       linkedscene_lookat=""
 	       onclick="skin_hotspotstyle_click();"
-	       onover.mouse="set(global.blink,1);"
-	       onout.mouse="set(global.blink,0);stoptween(caller.scale);autosize();"
-		   ondrop=""
 	       onloaded="if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );set(global.Autosize,1);set(global.blink,'0');set(global.EasyNavCross,'1');autosize();"
 	       />
 	<action name="skin_hotspotstyle_click" scope="local">
@@ -301,7 +293,6 @@
 		);
 	</action>
 	<action name="autosize" scope="local">
-		trace("bjr");
 		set(skin_without_rotation, "vtourskin_mapspot");
 		txtsplit(caller.url, "/", arr);
 		set(skin, arr[calc(get(arr.count)-1)].value );
@@ -331,8 +322,7 @@
 			set(caller.scale,calc(temporaire * reduction));
 			<!-- Fin de modification du scale de l'appeleur  -->
 			
-			<!-- if(!get(skin) == "vtourskin_mapspot", -->
-			trace("bonjour");
+			if(!(get(skin) == "vtourskin_mapspot"),
 				<!-- Rotation de la croix en fonction de sa distance -->
 				<!-- Calcul de la rotation de la croix selon x -->
 				calc(rot,height_view_point/distance_reel);
@@ -345,6 +335,7 @@
 				roundval(theta_deg_round, theta_deg, 2);
 				<!-- Injection de l'angle dans l'appeleur -->
 				set(caller.rx,calc(theta_deg_round/1.5));
+			);
 		);
 	</action>
 	<!-- Création de la boîte à outils de DOE3D -->

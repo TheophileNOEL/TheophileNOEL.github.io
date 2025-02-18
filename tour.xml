@@ -1,5 +1,5 @@
-﻿<krpano version="1.22.3" title="Virtual Tour" onstart="showlog(true);">
-
+﻿<krpano version="1.22.3" title="Virtual Tour" >
+	<!-- onstart="showlog(true);" -->
 	<include url="skin/vtourskin.xml" />
 	
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
@@ -28,7 +28,7 @@
 	               tooltips_hotspots="false"
 	               tooltips_mapspots="false"
 	               deeplinking="false"
-	               loadscene_flags="MERGE"
+	               loadscene_flags="MERGE|KEEPVIEW"
 	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
 	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
 	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
@@ -93,8 +93,11 @@
 			</level>
 		</image>
 
-		<hotspot name="spot0" style="skin_hotspotstyle3" ath="178.734" atv="14.186" depth="1000.0" linkedscene="scene_pano0096" />
-		<hotspot name="spot1" style="skin_hotspotstyle"  ath="179.742" atv="0.269" depth="1000.0" linkedscene="scene_pano0096" />
+		<hotspot name="spot0" style="skin_hotspotstyle3" ath="177.13" atv="31.265" depth="1000.0" linkedscene="scene_pano0096" draggable="true" />
+		<hotspot name="spot1620520558" style="skin_hotspotstyle3" ath="178.902" atv="13.718" depth="1000.0" linkedscene="scene_pano0097" />
+		<hotspot name="spot1620524922" style="skin_hotspotstyle3" ath="179.102" atv="10.224" depth="1000.0" linkedscene="scene_pano0098" />
+		<hotspot name="spot1620525064" style="skin_hotspotstyle3" ath="179.16" atv="6.496" depth="1000.0" linkedscene="scene_pano0099" />
+		
 
 	</scene>
 
@@ -116,6 +119,12 @@
 			</level>
 		</image>
 
+		<hotspot name="spot1620532278" style="skin_hotspotstyle" ath="3.035" atv="25.832" depth="1000.0" linkedscene="scene_pano0095" />
+		<hotspot name="spot1620532441" style="skin_hotspotstyle3" ath="-179.219" atv="28.609" depth="1000.0" linkedscene="scene_pano0097" />
+		<hotspot name="spot1620532704" style="skin_hotspotstyle3" ath="-179.899" atv="16.95" depth="1000.0" linkedscene="scene_pano0098" />
+		<hotspot name="spot1620532801" style="skin_hotspotstyle3" ath="179.969" atv="9.437" depth="1000.0" linkedscene="scene_pano0099" />
+		<hotspot name="spot1620532932" style="skin_hotspotstyle3" ath="179.882" atv="6.824" depth="1000.0" linkedscene="scene_pano0100" />
+
 	</scene>
 
 	<scene name="scene_pano0097" title="pano0097" onstart="" thumburl="panos/pano0097.tiles/thumb.jpg" lat="48.75578000" lng="7.66714167" heading="0.0">
@@ -135,6 +144,12 @@
 				<cube url="panos/pano0097.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
+
+		<hotspot name="spot1620533551" style="skin_hotspotstyle" ath="-0.809" atv="29.92" depth="1000.0" linkedscene="scene_pano0096" />
+		<hotspot name="spot1620533664" style="skin_hotspotstyle" ath="0.043" atv="14.204" depth="1000.0" linkedscene="scene_pano0095" />
+		<hotspot name="spot1620533745" style="skin_hotspotstyle3" ath="178.023" atv="37.958" depth="1000.0" linkedscene="scene_pano0098" />
+		<hotspot name="spot1620533843" style="skin_hotspotstyle3" ath="178.553" atv="12.174" depth="1000.0" linkedscene="scene_pano0099" />
+		<hotspot name="spot1620533913" style="skin_hotspotstyle3" ath="178.842" atv="8.411" depth="1000.0" linkedscene="scene_pano0100" />
 
 	</scene>
 
@@ -156,6 +171,12 @@
 			</level>
 		</image>
 
+		<hotspot name="spot1620534171" style="skin_hotspotstyle" ath="2.425" atv="18.349" depth="1000.0" linkedscene="scene_pano0097" />
+		<hotspot name="spot1620534253" style="skin_hotspotstyle" ath="2.928" atv="11.255" depth="1000.0" linkedscene="scene_pano0096" />
+		<hotspot name="spot1620534322" style="skin_hotspotstyle" ath="2.665" atv="7.998" depth="1000.0" linkedscene="scene_pano0095" />
+		<hotspot name="spot1620534412" style="skin_hotspotstyle3" ath="-179.147" atv="27.551" depth="1000.0" linkedscene="scene_pano0099" />
+		<hotspot name="spot1620534493" style="skin_hotspotstyle3" ath="-178.217" atv="13.434" depth="1000.0" linkedscene="scene_pano0100" />
+
 	</scene>
 
 	<scene name="scene_pano0099" title="pano0099" onstart="" thumburl="panos/pano0099.tiles/thumb.jpg" lat="48.75578000" lng="7.66714167" heading="0.0">
@@ -176,6 +197,11 @@
 			</level>
 		</image>
 
+		<hotspot name="spot1620534835" style="skin_hotspotstyle" ath="-3.093" atv="24.215" depth="1000.0" linkedscene="scene_pano0098" />
+		<hotspot name="spot1620534926" style="skin_hotspotstyle" ath="-1.168" atv="10.724" depth="1000.0" linkedscene="scene_pano0097" />
+		<hotspot name="spot1620535044" style="skin_hotspotstyle" ath="-0.934" atv="7.63" depth="1000.0" linkedscene="scene_pano0096" />
+		<hotspot name="spot1620535142" style="skin_hotspotstyle3" ath="177.31" atv="18.61" depth="1000.0" linkedscene="scene_pano0100" />
+
 	</scene>
 
 	<scene name="scene_pano0100" title="pano0100" onstart="" thumburl="panos/pano0100.tiles/thumb.jpg" lat="48.75578000" lng="7.66714167" heading="0.0">
@@ -195,6 +221,10 @@
 				<cube url="panos/pano0100.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
 			</level>
 		</image>
+
+		<hotspot name="spot1620535390" style="skin_hotspotstyle" ath="0.576" atv="16.827" depth="1000.0" linkedscene="scene_pano0099" />
+		<hotspot name="spot1620535496" style="skin_hotspotstyle" ath="1.0" atv="10.248" depth="1000.0" linkedscene="scene_pano0098" />
+		<hotspot name="spot1620535584" style="skin_hotspotstyle" ath="1.09" atv="6.791" depth="1000.0" linkedscene="scene_pano0097" />
 
 	</scene>
 

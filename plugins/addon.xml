@@ -1,4 +1,3 @@
 <krpano>
-    <plugin name="googlemaps" url="slider.js" keep="true"/>
-    <plugin name="autosize_plugin" url="autosize.js" keep="true"/>
+    <include name="Dragable" url="Dragable/dragable_hotspot.xml" keep="true"/>
 </krpano>
